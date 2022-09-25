@@ -8,7 +8,7 @@ $(async function () {
     const date = new Date(meeting.startDate);
     options += `<option value="${meeting._id}">${
       meeting.name
-    } ${date.getFullYear()}/${date.getMonth()}/${date.getDay()}</option>`;
+    } ${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}</option>`;
   });
   $("#meetingId").html(options); //.html = options;
 
