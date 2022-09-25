@@ -50,6 +50,7 @@ $(async function () {
               alert(
                 `Hi ${tutor.name}! attendance for meeting "${meeting.name}" has been marked`
               );
+              $("#contactForm")[0].reset();
             },
             error: function (xhr, status, err) {
               $submit.css("display", "hidden").text(waitText);
