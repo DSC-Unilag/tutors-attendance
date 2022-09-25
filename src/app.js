@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { globalErrorHandler, routeNotFoundHandler } from "./middlewares/index";
+import { tutorRoute } from "./routes/tutor";
 
 export const app = express();
 
@@ -11,6 +12,8 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Kola and Kruse cooked this🧑🏾‍🍳");
 });
+
+app.use("/api/v1/tutors", tutorRoute);
 
 app.use(routeNotFoundHandler);
 app.use(globalErrorHandler);
