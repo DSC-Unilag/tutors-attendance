@@ -22,22 +22,26 @@ async function create(req, res, next) {
     return next(
       new ApplicationError(
         409,
-        "You can no longer mark attendance for this meeting",
-      ),
+        "You can no longer mark attendance for this meeting"
+      )
     );
   }
 
   try {
+    const attendee = new Attendee({
       meeting,
       tutor,
       message: req.body.message,
     });
     await attendee.save();
+    return res.json(attendee);
+  } catch (err) {
+    if (err.code === 11000) {
       return next(
         new ApplicationError(
           409,
-          "You have already marked attendance for this meeting",
-        ),
+          "You have already marked attendance for this meeting"
+        )
       );
     }
     throw next(err);
