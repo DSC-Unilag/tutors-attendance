@@ -4,13 +4,14 @@ import { globalErrorHandler, routeNotFoundHandler } from "./middlewares/index";
 import { attendeeRoute } from "./routes/attendees";
 import { meetingRoute } from "./routes/meetings";
 import { tutorRoute } from "./routes/tutors";
+import { join } from "path";
 
 export const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
+app.use(express.static(join(process.cwd(), "public")));
 app.get("/api/v1", (req, res) => {
   res.send("Kola and Kruse cooked this🧑🏾‍🍳");
 });

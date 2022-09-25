@@ -4,7 +4,6 @@ import { ApplicationError } from "../utilities";
 async function create(req, res, next) {
   // get the user from the email ins req.body
   const tutor = await Tutor.findOne({ emailAddress: req.body.emailAddress });
-
   // if the user doensn't exist, throw error
   if (!tutor) {
     return next(new ApplicationError(404, "User not found"));
@@ -23,13 +22,17 @@ async function create(req, res, next) {
     return next(
       new ApplicationError(
         409,
-        "You can no longer mark attendance for this meeting",
-      ),
+        "You can no longer mark attendance for this meeting"
+      )
     );
   }
 
   try {
-    const attendee = new Attendee({ meeting, tutor });
+    const attendee = new Attendee({
+      meeting,
+      tutor,
+      message: req.body.message,
+    });
     await attendee.save();
     return res.json(attendee);
   } catch (err) {
@@ -37,8 +40,8 @@ async function create(req, res, next) {
       return next(
         new ApplicationError(
           409,
-          "You have already marked attendance for this meeting",
-        ),
+          "You have already marked attendance for this meeting"
+        )
       );
     }
     throw next(err);
