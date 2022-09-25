@@ -27,5 +27,5 @@ $ npm run buld                      |  $ npm run start
 
 ### Contributors
 
-- [Chukwemeka Chukwurah](htps://github.com/emmanuerl)
-- [Kolawole Temitope](htps://github.com/kolabdull)
+- (Chukwemeka Chukwurah)[htps://github.com/emmanuerl]
+- (Kolawole Temitope)[htps://github.com/kolabdull]
