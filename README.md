@@ -5,7 +5,15 @@ a simple appliation for managing attendance for tutors
 ### How to setup locally
 
 ```sh
-# clone repository and cd into path
+# clone repository
+$ git clone <repo_url>
+
+# cd into path
+$ cd tutors-attendance
+
+# setup env config
+# this only works in unix shells (sh, bash, git bash, e.t.c)
+$ cp .env.example .env
 
 # install dependencies
 $ npm install
