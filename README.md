@@ -23,7 +23,7 @@ $ npm run buld                      |  $ npm run start
 
 ### SDD
 
-![alt text](https://github.com/DSC-Unilag/tutors-attendance/blob/main/documentation/sdd.png?raw=true)
+![alt text](https://github.com/DSC-Unilag/tutors-attendance/blob/main/documentation/sdd.jpg?raw=true)
 
 ### Contributors
 
