@@ -37,13 +37,16 @@ $(async function () {
           var $submit = $(".submitting"),
             waitText = "Submitting...";
 
-          const data = $(form).serialize();
-          const body = {
-            emailAddress: data.emailAddress,
-            meetingId: data.meetingId,
-          };
+          const data = $("#contactForm").serializeArray();
+          const body = {};
+          data.forEach((data) => {
+            if (data.value.length) body[data.name] = data.value;
+          });
+
           if (data.message && data.message.length > 0)
             body.message = data.message;
+
+          console.log(body);
 
           $.ajax({
             type: "POST",

@@ -28,6 +28,7 @@ export async function update(req, res, next) {
   });
   const bodySchema = joi.object().keys({
     endDate: joi.date().optional().default(new Date()),
+    password: joi.string().required(),
   });
   try {
     req.body = await bodySchema.validateAsync(req.body, {

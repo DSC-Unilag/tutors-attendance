@@ -1,4 +1,5 @@
 import { Meeting } from "../models";
+import { ApplicationError } from "../utilities";
 
 /**
  * helper method for creating meetings
@@ -24,12 +25,15 @@ async function find(req, res) {
 }
 
 async function update(req, res, next) {
+  if (req.body.password !== process.env.ADMIN_SECRET_KEY) {
+    return next(new ApplicationError(401, "We don't know your daddy..."));
+  }
   // fetch the meeting
   const meeting = await Meeting.findById(req.params.id);
 
   // if meeting does not exist, error
   if (!meeting) {
-    return next(404, "This meeting does not exist");
+    return next(new ApplicationError(404, "This meeting does not exist"));
   }
 
   // if meeting exist, check it it has ended
