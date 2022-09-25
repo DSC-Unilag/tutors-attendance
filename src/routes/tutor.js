@@ -1,3 +1,3 @@
 import express from "express";
 
-export const router = new express.Router();
+export const tutorRoute = new express.Router();
