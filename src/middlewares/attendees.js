@@ -13,6 +13,7 @@ async function create(req, res, next) {
   const schema = joi.object().keys({
     emailAddress: joi.string().email().required(),
     meetingId: joi.objectId().required(),
+    message: joi.string(),
   });
   try {
     const safeBody = await schema.validateAsync(req.body, {

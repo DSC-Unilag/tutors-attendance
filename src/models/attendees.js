@@ -11,6 +11,10 @@ const attendeesSchema = new mongoose.Schema({
     required: true,
     ref: "meetings",
   },
+  message: {
+    required: false,
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
