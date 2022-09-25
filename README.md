@@ -36,4 +36,4 @@ $ npm run buld                      |  $ npm run start
 ### Contributors
 
 - [Chukwuemeka Chukwurah](https://github.com/emmanuerl)
-- [Kolawole Temitope](htps://github.com/kolabdull)
+- [Kolawole Temitope](https://github.com/kolabdull)
