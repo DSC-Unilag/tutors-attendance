@@ -11,7 +11,7 @@ joi.objectId = joiObjectId(joi);
  */
 async function create(req, res, next) {
   const schema = joi.object().keys({
-    emailAddress: joi.string().email().required(),
+    emailAddress: joi.string().lowercase().email().required(),
     meetingId: joi.objectId().required(),
     message: joi.string(),
   });
