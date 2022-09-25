@@ -5,11 +5,11 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  emailAddress: {
     type: String,
     required: true,
     unique: true,
   },
 });
 
-export const User = mongoose.model("tutors", schema);
+export const Tutor = mongoose.model("tutors", schema);
