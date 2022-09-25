@@ -1,10 +1,10 @@
 import cors from "cors";
 import express from "express";
+import { join } from "path";
 import { globalErrorHandler, routeNotFoundHandler } from "./middlewares/index";
 import { attendeeRoute } from "./routes/attendees";
 import { meetingRoute } from "./routes/meetings";
 import { tutorRoute } from "./routes/tutors";
-import { join } from "path";
 
 export const app = express();
 

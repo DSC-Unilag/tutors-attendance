@@ -22,8 +22,8 @@ async function create(req, res, next) {
     return next(
       new ApplicationError(
         409,
-        "You can no longer mark attendance for this meeting"
-      )
+        "You can no longer mark attendance for this meeting",
+      ),
     );
   }
 
@@ -40,8 +40,8 @@ async function create(req, res, next) {
       return next(
         new ApplicationError(
           409,
-          "You have already marked attendance for this meeting"
-        )
+          "You have already marked attendance for this meeting",
+        ),
       );
     }
     throw next(err);
