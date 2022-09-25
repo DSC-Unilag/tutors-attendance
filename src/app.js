@@ -1,7 +1,9 @@
 import cors from "cors";
 import express from "express";
 import { globalErrorHandler, routeNotFoundHandler } from "./middlewares/index";
-import { meetingRoute } from "./routes/meeting";
+import { attendeeRoute } from "./routes/attendees";
+import { meetingRoute } from "./routes/meetings";
+import { tutorRoute } from "./routes/tutors";
 
 export const app = express();
 
@@ -14,6 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/meetings", meetingRoute);
+app.use("/api/v1/tutors", tutorRoute);
+app.use("/api/v1/attendees", attendeeRoute);
 
 app.use(routeNotFoundHandler);
 app.use(globalErrorHandler);
