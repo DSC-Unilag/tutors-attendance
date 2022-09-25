@@ -37,10 +37,18 @@ $(async function () {
           var $submit = $(".submitting"),
             waitText = "Submitting...";
 
+          const data = $(form).serialize();
+          const body = {
+            emailAddress: data.emailAddress,
+            meetingId: data.meetingId,
+          };
+          if (data.message && data.message.length > 0)
+            body.message = data.message;
+
           $.ajax({
             type: "POST",
             url: "/api/v1/attendees",
-            data: $(form).serialize(),
+            data: body,
 
             beforeSend: function () {
               $submit.css("display", "block").hide();
